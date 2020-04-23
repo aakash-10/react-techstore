@@ -3,7 +3,7 @@ import {FaBars, FaCartPlus} from 'react-icons/fa'
 import styled from 'styled-components'
 import {ProductConsumer} from '../context'
 import logo from '../images/logo.svg'
-import { render } from 'react-dom'
+//import { render } from 'react-dom'
 
 
 function Navbar() {

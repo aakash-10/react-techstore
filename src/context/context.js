@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-
+import {linkData} from './linkData'
 const ProductContext = React.createContext();
 //provider
 //consumer
@@ -8,7 +8,8 @@ class ProductProvider extends Component{
     state={
         sidebarOpen : false,
         cartOpen :false,
-        carItems: 10
+        carItems: 10,
+        links: linkData
     }
 // handle sidebar
     handleSidebar = () =>{
