@@ -8,7 +8,7 @@ function Sidebar() {
     return (
        <ProductConsumer>
            {value =>{
-               const  {links,sidebarOpen,hanleSidebar} = value
+               const  {links,sidebarOpen,handleSidebar} = value
                return (
 <SideWrapper show={sidebarOpen}>
 
@@ -16,7 +16,7 @@ function Sidebar() {
        {links.map(link => {
            return(
            <li key={link.id}>
-                   <Link to={link.path} className="sidebar-link" onClick={hanleSidebar}>
+                   <Link to={link.path} className="sidebar-link" onClick={handleSidebar}>
                        {link.text}
                    </Link>
            </li>

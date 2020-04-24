@@ -9,10 +9,12 @@ class ProductProvider extends Component{
         sidebarOpen : false,
         cartOpen :false,
         carItems: 10,
-        links: linkData
+        links: linkData,
+        cart : []
     }
 // handle sidebar
     handleSidebar = () =>{
+       
         this.setState({
             sidebarOpen : !this.state.sidebarOpen
         })

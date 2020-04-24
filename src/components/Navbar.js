@@ -16,7 +16,7 @@ function Navbar() {
                 <NavWrapper>
                     <div className="nav-center">
                 <FaBars className="nav-icon" onClick={handleSidebar}  />
-                <img src={logo} alt="tech verse logo"/>
+                <h6>TechVerse</h6>
                 <div className="nav-cart">
                     <FaCartPlus className="nav-icon" onClick={handleCart}/>
                     <div className="cart-items" >
