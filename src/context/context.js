@@ -10,7 +10,7 @@ class ProductProvider extends Component{
     state={
         sidebarOpen : false,
         cartOpen :false,
-        carItems: 0,
+        cartItems: 0,
         links: linkData,
         socialIcons: socialData,
         cart : [],
@@ -82,6 +82,38 @@ syncStorage = () =>{}
 //add to cart
 addToCart = (id) =>{
     console.log(`add to cart ${id}`)
+    let tempCart = [...this.state.cart];
+    let tempProducts = [...this.state.storeProducts];
+    let tempItem = tempCart.find(item=> item.id === id);
+    if(!tempItem){
+        console.log("if block")
+        tempItem = tempProducts.find(item => item.id ===id)
+       
+        let total = tempItem.price;
+        let cartItem = {...tempItem,count:1,total};
+        
+        tempCart =[...tempCart,cartItem]
+       
+
+    }
+    else{
+        console.log("else blocl")
+        tempItem.count++;
+        
+        tempItem.total = tempItem.price * tempItem.count;
+        tempItem.total = parseFloat(tempItem.total.toFixed(2));
+
+    }
+    this.setState(()=>{
+        return {cart: tempCart}
+    },()=>{
+            this.addTotals()
+            this.syncStorage()
+            this.openCart()
+        
+    })
+
+
 }
 
 //set single product

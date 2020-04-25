@@ -9,8 +9,7 @@ function Product({product}) {
         <ProductConsumer>
             
             {value=>{
-                console.log("aaa")
-                console.log(value)
+            
                 const { addToCart,setSingleProduct} = value;
                 return(<ProductWrapper className="col-10 mx-auto col-sm-8 col-md-6 
                 col-lg-4 my-3"> 
@@ -22,9 +21,9 @@ function Product({product}) {
                     <div className="product-icons">
                  <Link  to={`/products/${product.id}`} onClick={()=>setSingleProduct(product.id)}>
                      <FaSearch className="icon"></FaSearch>
-                     <FaCartPlus className="icon" onClick={()=>addToCart(product.id)}></FaCartPlus>
+                     
                 </Link>
-
+                                <FaCartPlus className="icon" onClick={() => addToCart(product.id)}></FaCartPlus>
                     </div>
                     </div>
 
