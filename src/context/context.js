@@ -18,6 +18,7 @@ class ProductProvider extends Component{
         cartTax:0,
         cartTotal:0,
         storeProducts:[],
+        filteredProducts:[],
         featuredProducts:[],
         singleProduct:{},
         loading:true
@@ -37,6 +38,7 @@ setProducts = (products)=>{
         const {id} = item.sys;
         const image = item.fields.image.fields.file.url;
         const product = {id,...item.fields, image};
+     
         return product
     });
 
@@ -49,7 +51,8 @@ this.setState({
     featuredProducts,
     cart:this.getStorageCart(),
     singleProduct: this.getStorageProduct(),
-    loading: false
+    loading: false,
+    
 })
 }
 
