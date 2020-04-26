@@ -14,6 +14,7 @@ class ProductProvider extends Component{
         links: linkData,
         socialIcons: socialData,
         cart : [],
+        cartItems:0,
         cartSubTotal:0,
         cartTax:0,
         cartTotal:0,
@@ -61,12 +62,19 @@ this.setState({
 
 //get cart from local storage
 getStorageCart = () =>{
-    return []
+    let cart;
+    if(localStorage.getItem('cart')){
+        cart = JSON.parse(localStorage.getItem('cart'))
+    }else{
+        cart = []
+    }
+    return cart;
 }
 
 //get product from local storage
 getStorageProduct = () => {
-        return []
+
+        return localStorage.getItem('singleProduct')? JSON.parse(localStorage.getItem('singleProduct')):{}
     }
 
     //get totals
@@ -111,7 +119,11 @@ addTotals =() =>{
 }
 
 //sync storage
-syncStorage = () =>{}
+syncStorage = () =>{
+    localStorage.setItem('cart',JSON.stringify(this.state.cart));
+
+
+}
 
 //add to cart
 addToCart = (id) =>{
@@ -153,7 +165,12 @@ addToCart = (id) =>{
 //set single product
 
 setSingleProduct = (id) =>{
-    console.log(`set single product ${id}`)
+ let product = this.state.storeProducts.find(item=>item.id === id);
+ localStorage.setItem('singleProduct',JSON.stringify(product))
+ this.setState({
+     singleProduct : {...product},
+     loading: false
+ })
 }
 
 // handle sidebar
