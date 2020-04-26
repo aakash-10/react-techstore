@@ -53,6 +53,9 @@ this.setState({
     singleProduct: this.getStorageProduct(),
     loading: false,
     
+},
+()=>{
+    this.addTotals()
 })
 }
 
@@ -68,11 +71,42 @@ getStorageProduct = () => {
 
     //get totals
 getTotals = () =>{
+    let subTotal = 0;
+    let cartItems = 0;
+    this.state.cart.forEach(item => {
+        subTotal += item.total
+        cartItems += item.count
+    });
+console.log(subTotal)
+subTotal = parseFloat(subTotal.toFixed(2));
+let tax = subTotal * 0.2;
+tax = parseFloat(tax.toFixed(2));
+let total = subTotal+ tax;
+total = parseFloat(total.toFixed(2));
+console.log("in get total")
+console.log(cartItems,subTotal,tax,total)
+return{
+    cartItems,
+    subTotal,
+    tax,
+    total
+}
 
 }
 
 //add totals
 addTotals =() =>{
+    console.log("add totals called")
+    console.log(this.getTotals)
+    const totals = this.getTotals();
+    console.log(totals.cartItems)
+    this.setState({
+        cartItems: totals.cartItems,
+        cartSubTotal: totals.subTotal,
+        cartTax: totals.cartTax,
+        cartTotal: totals.total
+
+    })
 
 }
 

@@ -10,7 +10,7 @@ function Navbar() {
     return (<ProductConsumer>
         {value =>{
             console.log(value)
-            const { carItems, handleSidebar, handleCart} = value
+            const { cartItems, handleSidebar, handleCart} = value
 
             return (
                 <NavWrapper>
@@ -20,7 +20,7 @@ function Navbar() {
                 <div className="nav-cart">
                     <FaCartPlus className="nav-icon" onClick={handleCart}/>
                     <div className="cart-items" >
-                        {carItems}
+                        {cartItems}
 
                     </div>
                     </div> 
