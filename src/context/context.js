@@ -22,7 +22,8 @@ class ProductProvider extends Component{
         filteredProducts:[],
         featuredProducts:[],
         singleProduct:{},
-        loading:true
+        loading:true,
+       
 
     }
 componentDidMount(){
@@ -111,7 +112,7 @@ addTotals =() =>{
     this.setState({
         cartItems: totals.cartItems,
         cartSubTotal: totals.subTotal,
-        cartTax: totals.cartTax,
+        cartTax: totals.tax,
         cartTotal: totals.total
 
     })
@@ -196,9 +197,36 @@ setSingleProduct = (id) =>{
         this.setState({cartOpen : true})
     }
 
+    //cart functionality
+//increment
+    increment = id=>{
+        console.log(id)
+    }
+
+    //decrement
+    decrement = id => {
+        console.log(id)
+
+    
+    }
+    //remove
+    removeItem = id => {
+        console.log(id)
+
+    }
+    //clearCart
+    clearCart = () => {
+        console.log("clear")
+
+    }
+
+
+
     render(){
         return (<ProductContext.Provider value={{handleSidebar:this.handleSidebar,
-        ...this.state,handleCart:this.handleCart,closeCart:this.closeCart,openCart:this.openCart,addToCart:this.addToCart,setSingleProduct:this.setSingleProduct}}>
+        ...this.state,handleCart:this.handleCart,closeCart:this.closeCart,openCart:this.openCart,addToCart:this.addToCart,setSingleProduct:this.setSingleProduct,
+        increment:this.increment,decrement:this.decrement,clearCart:this.clearCart,
+        removeItem:this.removeItem}}>
             {this.props.children}
         </ProductContext.Provider>)
        
