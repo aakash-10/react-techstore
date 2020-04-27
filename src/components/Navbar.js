@@ -2,7 +2,7 @@ import React from 'react'
 import {FaBars, FaCartPlus} from 'react-icons/fa'
 import styled from 'styled-components'
 import {ProductConsumer} from '../context'
-import logo from '../images/logo.svg'
+import log from '../images/log.png'
 //import { render } from 'react-dom'
 
 
@@ -16,7 +16,7 @@ function Navbar() {
                 <NavWrapper>
                     <div className="nav-center">
                 <FaBars className="nav-icon" onClick={handleSidebar}  />
-                <h6>TechVerse</h6>
+                        <img src={log}></img>
                 <div className="nav-cart">
                     <FaCartPlus className="nav-icon" onClick={handleCart}/>
                     <div className="cart-items" >
@@ -72,6 +72,8 @@ z-index: 1;
 
 
 }
+
+
 `
 
 export default Navbar
