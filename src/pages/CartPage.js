@@ -3,11 +3,12 @@ import CartSection from '../components/cartPage'
 import Hero from '../components/Hero'
 import CartBcg from '../images/storeBcg.jpeg'
 
-function CartPage() {
+function CartPage(props) {
+    console.log(props)
     return (
         <>
             <Hero img={CartBcg}></Hero>
-            <CartSection></CartSection>
+            <CartSection history={props.history}></CartSection>
         </>
     )
 }
