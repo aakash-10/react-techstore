@@ -9,7 +9,7 @@ import logo from '../images/logo.svg'
 function Navbar() {
     return (<ProductConsumer>
         {value =>{
-            console.log(value)
+            
             const { cartItems, handleSidebar, handleCart} = value
 
             return (
